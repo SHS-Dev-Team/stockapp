@@ -1,0 +1,5 @@
+numpy
+pandas
+pylint
+os
+matplotlib.pyplot

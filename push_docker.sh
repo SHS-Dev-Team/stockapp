@@ -1,6 +1,4 @@
-docker pull 
-
-docker build --tag=stockapp
+docker build --tag=stockapp .
 
 dockerpath=beartuchman/stockapp
 

@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <link href="../styles.css" rel="stylesheet" type="text/css"/>
+        <title>New Post</title>
+    </head>
+    <body>
+        <h1>New Blog Post</h1>
+        <form action = "{% url 'blog:createPost' %}" method="post">
+            {% csrf_token %}
+            Title <input type="text" name="title">
+            Text <br><textarea name="text"></textarea>
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>

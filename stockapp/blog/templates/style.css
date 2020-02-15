@@ -1,0 +1,14 @@
+body{
+    background-color: #F5F5F5;
+}
+
+textarea{
+    width:100px;
+    height:80px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+input[type='text']{
+    font-size:2em;
+    font-family: "Courier New", Courier, monospace;
+}

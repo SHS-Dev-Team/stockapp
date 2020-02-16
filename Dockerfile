@@ -10,10 +10,11 @@ COPY . stockapp/manage.py /app/
 #Install requirements (pandas, matplotlib etc)
 RUN pip install --upgrade pip &&\
     pip install --trusted-host pypi.python.org -r requirements.txt
-
+    python manage.py makemigrations
+    python manage.py migrate
 
 EXPOSE 80
 
 #run main python file with python
-CMD ["python", "manage.py"]
+CMD ["python", "manage.py","runserver"]
 

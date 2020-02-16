@@ -7,6 +7,7 @@
         <header>
             <h1>Welcome to the App</h1>
         </header>
+        <article>
             <div id="posts">
                 {%for post in posts%}
                 <h3>{{post.title}}</h3>
@@ -14,6 +15,7 @@
                 <p>{{post.body}}</p> 
                 {%endfor%}
             </div>
+        </article>
         <footer></footer> 
     </body>
 </html>

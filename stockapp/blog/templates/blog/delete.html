@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Delete</title>
+    </head>
+    <body>
+        <h2>Which one would you like to delete?</h2>
+        <ul>
+            {% for post in posts%}
+            <li><a href="{% url 'delete' post.title %}">{{post.title}}</a></li>
+            {%endfor%}
+        </ul>
+    </body>
+
+</html>

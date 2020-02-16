@@ -1,14 +1,16 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from datetime import datetime as dt
+from .models import *
 
 def createPost(request):
-    newPost = Post(title=request.POST['title'], text=request.POST['text'], date=dt.now())
+    newPost = Post(title=request.POST['title'], body=request.POST['body'], date=dt.now())
     newPost.save()
     return HttpResponse("saved")
 
 def index(request):
-    return HttpResponse("All stakes in now")
+    posts = {"posts":Post.objects.all()}
+    return render(request,'blog/main.html',posts)
 
 def blogHome(request):
     return HttpResponse("Have to edit this")

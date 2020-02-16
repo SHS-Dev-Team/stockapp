@@ -1,14 +1,14 @@
 <html>
     <head>
-        <link href="../styles.css" rel="stylesheet" type="text/css"/>
+        <link href="styles/styles.css" rel="stylesheet" type="text/css"/>
         <title>New Post</title>
     </head>
     <body>
         <h1>New Blog Post</h1>
-        <form action = "{% url 'blog:createPost' %}" method="post">
+        <form action = "{% url 'createPost' %}" method="post">
             {% csrf_token %}
             Title <input type="text" name="title">
-            Text <br><textarea name="text"></textarea>
+            Text <br><textarea name="body"></textarea>
             <input type="submit" value="Submit">
         </form>
     </body>

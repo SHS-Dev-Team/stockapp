@@ -55,7 +55,7 @@ ROOT_URLCONF = 'stockapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join('blog', 'templates', 'blog')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

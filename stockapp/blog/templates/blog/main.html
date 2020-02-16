@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Stock Viewer</title>
+    </head>
+    <body>
+        <header>
+            <h1>Welcome to the App</h1>
+        </header>
+            <div id="posts">
+                {%for post in posts%}
+                <h3>{{post.title}}</h3>
+                <h5>{{post.date}}</h5>
+                <p>{{post.body}}</p> 
+                {%endfor%}
+            </div>
+        <footer></footer> 
+    </body>
+</html>

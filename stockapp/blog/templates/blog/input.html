@@ -1,16 +1,31 @@
 <!doctype html>
 <html>
     <head>
-        
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/style.css' %}" >
         <title>New Post</title>
+        <script src="https://cdn.tiny.cloud/1/56l1g83g0dfwc39wyjg1bg28o45gff63ne9a142lpzg7tchp/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+        <script>
+        tinymce.init({
+            selector: '#mytextarea',
+            width: 1000,
+            resize: 'both'
+        });
+        </script>
     </head>
     <body>
         <h1>New Blog Post</h1>
         <form action = "{% url 'blog:createPost' %}" method="post">
             {% csrf_token %}
-            Title <input type="text" name="title">
-            Text <br><textarea name="body"></textarea>
-            <input type="submit" value="Submit">
+            <div class = "input">
+                <div class ="title">
+                    Title <br><input type="text" name="title"><br>
+                </div>
+                <div class="text">
+                    <textarea id="mytextarea" name="mytextarea body"></textarea>
+                </div>
+                <input type="submit" value="Submit">
+            </div>
         </form>
     </body>
 </html>

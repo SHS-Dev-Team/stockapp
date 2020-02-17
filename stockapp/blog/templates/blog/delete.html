@@ -6,8 +6,10 @@
         <form action = "{% url 'blog:delete' %}" method="post">
         {% csrf_token %}
             {% for post in posts%}
+                <div class ="list">
                    <input type="checkbox" name={{post.idtag}} value={{post.idtag}}>
                    <label for={{post.idtag}}>{{post.title}}</label><br>
+                </div>
             {%endfor%}
              <input type="submit" value="Submit">
         </form>

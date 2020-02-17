@@ -7,7 +7,7 @@ from .models import *
 import uuid
 
 def createPost(request):
-    newPost = Post(title=request.POST['title'], body=request.POST['body'], date=dt.now())
+    newPost = Post(title=request.POST['title'], body=request.POST['mytextarea'], date=dt.now())
     newPost.save()
     return HttpResponseRedirect(reverse('blog:home'))
 
@@ -27,4 +27,3 @@ class Delete():
 class ViewAll(ListView):
     model = Post
     template_name = "blog/main.html"
-    

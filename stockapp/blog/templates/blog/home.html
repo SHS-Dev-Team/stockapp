@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+    <head>
+        
+        <title>{% block title%} {% endblock %}</title>
+    </head>
+    <body>
+        <header>
+            <h1>Welcome to the App</h1>
+        </header>
+        <article>
+            <div id="posts">
+                {% block list%}
+                {% endblock %}
+            </div>
+            <div>
+                <a href="{% url 'blog:newpost' %}">Click to Create New Post</a> 
+            </div>
+        </article>
+        <footer>
+            
+        </footer> 
+    </body>
+</html>

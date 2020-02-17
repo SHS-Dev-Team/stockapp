@@ -1,7 +1,10 @@
 body{
     background-color: #F5F5F5;
 }
-
+ 
+h1{
+    color:blue;
+}
 textarea{
     width:100px;
     height:80px;

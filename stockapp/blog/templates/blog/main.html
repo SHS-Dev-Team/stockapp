@@ -1,24 +1,10 @@
-<!doctype html>
-<html>
-    <head>
-        <title>Stock Viewer</title>
-    </head>
-    <body>
-        <header>
-            <h1>Welcome to the App</h1>
-        </header>
-        <article>
-            <div id="posts">
-                {%for post in posts%}
+{% extends "home.html" %}
+
+{% block title %} Stock Viewer {% endblock %}
+{% block list %} 
+    {%for post in object_list %}
                 <h3>{{post.title}}</h3>
                 <h5>{{post.date}}</h5>
                 <p>{{post.body}}</p> 
-                {%endfor%}
-            </div>
-            <div>
-                <a href="{% url 'newpost' %}">Click to Create New Post</a> 
-            </div>
-        </article>
-        <footer></footer> 
-    </body>
-</html>
+    {%endfor%}
+{% endblock %}

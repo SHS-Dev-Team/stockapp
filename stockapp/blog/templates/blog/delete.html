@@ -1,15 +1,14 @@
-<!doctype html>
-<html>
-    <head>
-        <title>Delete</title>
-    </head>
-    <body>
-        <h2>Which one would you like to delete?</h2>
-        <ul>
-            {% for post in posts%}
-            <li><a href="{% url 'delete' post.title %}">{{post.title}}</a></li>
-            {%endfor%}
-        </ul>
-    </body>
+{% extends "home.html" %}
 
-</html>
+{% block title %} Delete {% endblock %}
+{% block list %} 
+        
+        <form action = "{% url 'blog:delete' %}" method="post">
+        {% csrf_token %}
+            {% for post in posts%}
+                   <input type="checkbox" name={{post.idtag}} value={{post.idtag}}>
+                   <label for={{post.idtag}}>{{post.title}}</label><br>
+            {%endfor%}
+             <input type="submit" value="Submit">
+        </form>
+{% endblock %}

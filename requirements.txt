@@ -1,7 +1,6 @@
 numpy
 pandas
 sklearn
-os
-matplotlib.pyplot
+matplotlib
 Django==3.0.3
 jupyter

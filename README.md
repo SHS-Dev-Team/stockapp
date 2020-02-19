@@ -52,7 +52,7 @@ The homepage is http://127.0.0.1:8000/ or http://127.0.0.1:8000/home which is wh
 
 
 
-
+# please don't forget to use git pull
 
 
 

@@ -57,6 +57,5 @@ The homepage is http://127.0.0.1:8000/ or http://127.0.0.1:8000/home which is wh
 
 
 
-FUTURE NOTES
-
-If we ever make this site public, make sure to go to stockapp/setting.py and make ‘DEBUG=False’  
+**FUTURE NOTES**
+  * If we ever make this site public, make sure to go to stockapp/setting.py and make ‘DEBUG=False’  

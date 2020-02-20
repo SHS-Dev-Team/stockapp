@@ -18,7 +18,7 @@ https://www.python.org/downloads/
 4. Once cloned, enter the directory you just cloned
    `cd stockapp`
    then download all required libraries for the project using
-   `pip install -r requirements.txt`
+   `pip install -r requirements.txt` or `make install`
    
 5. If you type `ls`, you’ll get a list of folders and files inside what you just cloned. The Django project is inside the folder called    “stockapp” (that can be a bit confusing). Everything else is for other aspects of the project such as sharing Jupyter notebooks.
 

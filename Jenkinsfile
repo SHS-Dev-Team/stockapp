@@ -24,11 +24,11 @@ pipeline {
     }
     stage('Docker login') {
       steps {
-        withCredentials([usernamePassword(credentialsId: 'DOCKER', passwordVariable: 'word', usernameVariable: 'user')]){
-          sh 'docker login --username $user --password $word'
+        withCredentials([usernamePassword(credentialsId: 'DOCKER', passwordVariable: 'word',  usernameVariable:  'user')]){
+        sh 'docker login --username $user --password $word'
         }
       }
-    }  
+    }
   }
 }
 

@@ -26,8 +26,8 @@ pipeline {
 
     stage('Docker login') {
       steps {
-        docker.withTool("default"){
-          withCredentials(bindings: [usernamePassword(credentialsId: 'DOCKER', passwordVariable: 'word',  usernameVariable:  'user')]) {
+        withCredentials(bindings: [usernamePassword(credentialsId: 'DOCKER', passwordVariable: 'word',  usernameVariable:  'user')]) {
+          docker.withTool("default"){ 
             sh 'docker login --username $user --password $word'
           }
         }

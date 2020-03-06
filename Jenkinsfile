@@ -27,7 +27,7 @@ pipeline {
     stage('Docker login') {
       steps {
         withCredentials(bindings: [usernamePassword(credentialsId: 'DOCKER', passwordVariable: 'word',  usernameVariable:  'user')]) {
-          sh 'docker login --username $user --password $word'
+          sh 'cat $word | docker login --username $user --password-stdin'
         }
 
       }

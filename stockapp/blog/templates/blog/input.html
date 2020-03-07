@@ -1,25 +1,23 @@
-<!doctype html>
-<html>
-    <head>
-        {% load static %}
-        <link rel="stylesheet" type="text/css" href="{% static 'styles/style.css' %}" >
-        <title>New Post</title>
-        <script src="https://cdn.tiny.cloud/1/56l1g83g0dfwc39wyjg1bg28o45gff63ne9a142lpzg7tchp/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-        <script>
-        tinymce.init({
-            selector: '#mytextarea',
-            width: 1000,
-            plugins: 'a11ychecker advcode casechange formatpainter linkchecker lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
-            resize: 'both',
-            toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
-            toolbar_drawer: 'floating',
-            tinycomments_mode: 'embedded',
-            tinycomments_author: 'Author name',
-        });
-        </script>
-    </head>
-    <body>
-        <h1>New Blog Post</h1>
+{%extends "base.html"%}
+
+{% block title%}New Post {% endblock %}
+{% block otherheaders %}
+    <script src="https://cdn.tiny.cloud/1/56l1g83g0dfwc39wyjg1bg28o45gff63ne9a142lpzg7tchp/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+    tinymce.init({
+        selector: '#mytextarea',
+        width: 1000,
+        plugins: 'a11ychecker advcode casechange formatpainter linkchecker lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+        resize: 'both',
+        toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+        toolbar_drawer: 'floating',
+        tinycomments_mode: 'embedded',
+        tinycomments_author: 'Author name',
+    });
+    </script>
+{%endblock%}
+{% block main%}
+        <h2>New Blog Post</h2>
         <form action = "{% url 'blog:createPost' %}" method="post">
             {% csrf_token %}
             <div class = "input">
@@ -32,5 +30,4 @@
                 <input type="submit" value="Submit">
             </div>
         </form>
-    </body>
-</html>
+{%endblock%}

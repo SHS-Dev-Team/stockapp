@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Stock Viewer{%endblock%}
+{% block otherheaders%}
+    <style>
+        ul{
+            list-style-type:none;
+        }
+        #main *{
+            margin:8px;
+        }
+    </style>
+{%endblock%}
+{%block main%}
+    <h2>Stock Viewer</h2>
+    <input type="text" id="inp" oninput="search({{symbols}})" on placeholder="Enter Symbol">
+    <ul id = "results">
+    </ul>
+    <script>
+        var input;
+        var count; 
+        var li;
+        input = document.getElementById("inp");
+        function search(symb){
+            document.getElementById("results").innerHTML="";
+            count = 0;
+            for(var sy of symb){
+                if(count>10){
+                    break;
+                }
+                else if(sy.symbol.startsWith(input.value.toUpperCase().trim())==true){
+                    count=count+1;
+                    li = document.createElement("li");
+                    li.innerHTML=sy.symbol;
+                    document.getElementById("results").appendChild(li);
+                }
+            }
+        }
+        input.addEventListener('input',ev=>{
+            if(!input.value.trim()){
+                document.getElementById("results").innerHTML="";
+            }
+        })
+    </script>
+{%endblock%}

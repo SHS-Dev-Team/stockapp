@@ -59,3 +59,61 @@ h5{
     text-indent: 1em;
     padding-top: 10px;
 }
+
+
+
+nav ul {
+	padding: 0;
+	margin: 0 auto;
+	height: 40px;
+}
+nav li {
+	display: inline;
+    float: left;
+    
+}
+nav a {
+	color: #fff;
+	display: inline-block;
+	width: 100px;
+	text-align: center;
+	text-decoration: none;
+	line-height: 40px;
+	text-shadow: 1px 1px 0px #283744;
+}
+nav li a {
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}
+nav li:last-child a {
+	border-right: 0;
+}
+nav a:hover, nav a:active {
+	background-color: #8c99a4;
+}
+nav {
+	height: 40px;
+	width: 100%;
+	background: rgb(6, 41, 41);
+	font-size: 10pt;
+	font-weight: bold;
+    position: relative;
+    border-bottom-style: double;
+}
+nav a#pull {
+	display: none;
+}
+
+.button{
+    font-size: 1em;
+    background-color: white;
+    color: black;
+}
+
+#main{
+    padding-top: 10px;
+    margin-left: 2%;
+}
+
+

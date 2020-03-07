@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+    <head>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/style.css' %}" >
+        <title>{% block title%} {% endblock %}</title>
+        {%block otherheaders%} {%endblock%}
+    </head>
+    <body>
+        <header>
+            <h1>Welcome to the App</h1>
+            <nav class="clearfix"> 
+                <ul class="clearfix">
+                    <li><a href = "{% url 'blog:home'%}">Home</a></li>
+                    <li><a href = "{% url 'blog:newpost'%}">Create Post</a></li>
+                    <li><a href= "{% url 'blog:deletepost'%}">Delete Post</a></li>
+                    <li><a href="{% url 'blog:stockpage'%}">View Stock</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div id="main">
+        {%block main%} 
+        {%endblock%}
+        </div>
+    </body>
+</html>

@@ -4,7 +4,9 @@ from django.urls import reverse
 from django.views.generic import ListView
 from datetime import datetime as dt
 from .models import *
+from finnhub import client as Finnhub
 import uuid
+import json 
 
 def createPost(request):
     newPost = Post(title=request.POST['title'], body=request.POST['mytextarea'], date=dt.now())
@@ -22,8 +24,19 @@ class Delete():
                 Post.objects.get(pk=id).delete()
         return HttpResponseRedirect(reverse('blog:home'))
         
-
-
 class ViewAll(ListView):
     model = Post
-    template_name = "blog/main.html"
+    template_name = "blog/home.html"
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['object_list'] = reversed(Post.objects.all())
+        return context
+
+
+
+def stockpick(request):
+    key="bphdaenrh5rablt4vrkg"
+    client = Finnhub.Client(api_key=key)
+    allstocks = json.dumps(client.stock_symbol(exchange="US"))
+    cont = {"symbols":allstocks}
+    return render(request, 'blog/stock.html',context=cont)

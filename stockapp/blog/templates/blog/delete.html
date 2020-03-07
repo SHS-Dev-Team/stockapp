@@ -1,8 +1,8 @@
-{% extends "home.html" %}
+{% extends "base.html" %}
 
 {% block title %} Delete {% endblock %}
-{% block list %} 
-        
+{% block main %} 
+        <h2> Which post would you like to delete? </h2>
         <form action = "{% url 'blog:delete' %}" method="post">
         {% csrf_token %}
             {% for post in posts%}
@@ -11,6 +11,6 @@
                    <label for={{post.idtag}}>{{post.title}}</label><br>
                 </div>
             {%endfor%}
-             <input type="submit" value="Submit">
+            <input type="submit" value="Submit" class="button">
         </form>
 {% endblock %}

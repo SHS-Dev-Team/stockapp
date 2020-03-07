@@ -1,27 +1,19 @@
-<!doctype html>
-<html>
-    <head>
-        {% load static %}
-        <link rel="stylesheet" type="text/css" href="{% static 'styles/style.css' %}" >
-        <title>{% block title%} {% endblock %}</title>
-    </head>
-    <body>
-        <header>
-            <h1>Welcome to the App</h1>
-        </header>
-        <article>
-            <div id="posts">
-                {% block list%}
-                {% endblock %}
+{% extends "base.html" %}
+{%block title %} Home {%endblock%}
+{%block main%}
+    <article>
+        <div id="posts">
+            {%for post in object_list %}  
+            <div class = "list">
+                <h2>{{post.title}}</h3>
+                <h5>{{post.date}}</h5>
+                <div class="bodytext">
+                    {% autoescape off %}  <!--Render post.body as html text-->
+                        {{post.body}}
+                    {% endautoescape %} 
+                </div>
             </div>
-            <div>
-                <br>
-                <a href="{% url 'blog:newpost' %}">Click to Create New Post</a> 
-                <br>
-            </div>
-        </article>
-        <footer>
-            
-        </footer> 
-    </body>
-</html>
+            {%endfor%}
+        </div>
+    </article>
+{%endblock%}

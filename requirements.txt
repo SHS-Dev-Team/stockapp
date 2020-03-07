@@ -5,3 +5,4 @@ os
 matplotlib.pyplot
 Django==3.0.3
 jupyter
+finnhub

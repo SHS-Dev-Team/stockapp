@@ -9,6 +9,7 @@ urlpatterns = [
     path('home/',ViewAll.as_view(), name='home'),
     path('home/new',TemplateView.as_view(template_name='input.html'), name ='newpost'),
     path('saved/',views.createPost,name="createPost"),
-    path('delete/',Delete.listDel),
-    path('123/',Delete.delete,name="delete")
+    path('delete/',Delete.listDel,name="deletepost"),
+    path('123/',Delete.delete,name="delete"),
+    path('stock/',views.stockpick,name="stockpage")
 ]

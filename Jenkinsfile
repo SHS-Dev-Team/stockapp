@@ -28,8 +28,7 @@ pipeline {
 
         stage('oot') {
           steps {
-            sudo sh '''curl -fsSL https://get.docker.com -o get-docker.sh
-./get-docker.sh'''
+            sh '''sudo curl -fsSL https://get.docker.com -o get-docker.sh | ./get-docker.sh'''
           }
         }
 

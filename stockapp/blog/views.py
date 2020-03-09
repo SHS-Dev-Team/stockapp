@@ -48,9 +48,8 @@ def stockpick(request):
 def stockinfo(request, ticker):
     key="bphdaenrh5rablt4vrkg"
     client = Finnhub.Client(api_key=key)
-    ticker ="NTFLX"
-    name = ticker #client.company_profile(symbol=ticker)['name']
-    description = ticker #client.company_profile(symbol=ticker)['description']
-    marketcap= ticker #client.company_profile(symbol=ticker)['marketCapitalization']
+    name = client.company_profile(symbol=ticker)['name']
+    description = client.company_profile(symbol=ticker)['description']
+    marketcap= client.company_profile(symbol=ticker)['marketCapitalization']
     context = {"name":name,"description":description,"marketcap":marketcap}
     return render(request, 'blog/stockindividual.html',context=context)

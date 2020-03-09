@@ -44,11 +44,9 @@
             if(!input.value.trim()){
                 document.getElementById("results").innerHTML="";
             }
-        });
-        input.addEventListen('keyup', function(event)=>{
-            if(event.keyCode===13){
-                document.forms["search"].submit();
+            if(ev.keyCode===13){
+                document.forms["search"].forms();
             }
-        })
+        });
     </script>
 {%endblock%}

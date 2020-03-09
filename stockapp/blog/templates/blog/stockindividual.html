@@ -1,10 +1,10 @@
 {%extends "stock.html"%}
 {%block stockpicked%}
     <div class="stockitem">
-                <h3>Name: {{name}}</h3>
-                <h3>Description: {{description}}</h3>
-                <h3>Market Cap: {{marketcap}}</h3>
-                <span class="price">$Price</span>
+                <h3>Name:</h3><p>{{name}}</p>
+                <h3>Description</h3> <p>{{description}}</p>
+                <h3>Market Cap</h3>
+                <span class="price">${{marketcap}}</span>
             </div>
         
 {%endblock%}

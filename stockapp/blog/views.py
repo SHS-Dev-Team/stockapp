@@ -35,7 +35,7 @@ class ViewAll(ListView):
 def stockpick(request):
     key="bphdaenrh5rablt4vrkg"
     client = Finnhub.Client(api_key=key)
-    allstocks = [x['symbol'] for x in client.stock_symbol(exchange="US")]
+    allstocks = [x['displaySymbol'] for x in client.stock_symbol(exchange="US")]
     results=[]
     placeholder = ""
     if request.GET.get('tic'):
@@ -50,6 +50,6 @@ def stockinfo(request, ticker):
     client = Finnhub.Client(api_key=key)
     name = client.company_profile(symbol=ticker)['name']
     description = client.company_profile(symbol=ticker)['description']
-    marketcap= client.company_profile(symbol=ticker)['marketCapitalization']
+    marketcap= int(client.company_profile(symbol=ticker)['marketCapitalization']*1000000)
     context = {"name":name,"description":description,"marketcap":marketcap}
     return render(request, 'blog/stockindividual.html',context=context)

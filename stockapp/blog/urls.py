@@ -11,5 +11,6 @@ urlpatterns = [
     path('saved/',views.createPost,name="createPost"),
     path('delete/',Delete.listDel,name="deletepost"),
     path('123/',Delete.delete,name="delete"),
-    path('stock/',views.stockpick,name="stockpage")
+    path('stock/',views.stockpick, name="stockpage"),
+    path('stock/<str:ticker>/',views.stockinfo, name="stockpick"),
 ]

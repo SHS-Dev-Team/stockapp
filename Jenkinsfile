@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('gg') {
       steps {
-        sh 'sudo echo "Poop"'
+        sh 'echo "Poop"'
       }
     }
 

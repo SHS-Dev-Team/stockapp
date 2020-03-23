@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+    -->
+    {%load static%}
+    <link rel="manifest" href="{% static "samplegraph/manifest.json" %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/styles.css' %}" >
+    <title>React App</title>
+    <!--
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css">
+    -->
+  </head>
+  <body>
+    <div id="maincontainer">
+      <div class = "children left">
+      </div>
+      <div class="children middle">
+        <div class="middlechild headprice"></div>
+        <div id="root" class = "middlechild chartbody"></div>
+        <div class="middlechild stockinfo">
+          <div class = "about"></div>
+          <div class="stats"></div>
+        </div>
+      </div>
+      <div class="children right">
+      </div>
+    </div>
+  </body>
+  <script src="{% static "samplegraph/main.js" %}"></script>
+</html>
+<!--<div id="maincontainer">
+      <div class = "children left">
+        <div id="logo"></div>
+        <div id="nav">
+          <nav></nav>
+        </div>
+        </div id="profile"></div> 
+      </div>
+      <div class="children middle">
+        <div id="headprice"></div>
+        <div id="chartbody">
+          <div id="root" class="chart"></div> 
+          <div id="preferences"></div>
+        </div>
+        <div id="stockinfo">
+          <div id="about"></div>
+          <div id="stats"></div>
+        </div>
+      </div>
+      <div class="children right">
+        <div id="searchstocks"></div>
+        <div id="otherstocks"></div>
+      </div>
+    </div>-->

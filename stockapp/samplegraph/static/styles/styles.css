@@ -1,0 +1,57 @@
+*{
+    border-radius: 20px;
+}
+
+#maincontainer{
+    border: dashed black;
+    display: flex;
+    flex-flow: row nowrap;
+    position: absolute;
+    bottom: 2px;
+    top: 2px;
+    right: 2px;
+    left: 2px;
+}
+.children{
+    margin: 5px;
+    background-color: #F2C53D;
+}
+.left{
+    flex: 1;
+    border: solid brown 6px;
+}
+.middle{
+    border: solid black 6px;
+    flex: 3;
+}
+.right{
+    border: solid blue 6px;
+    flex: 1;
+}
+
+
+/*middle*/
+
+.middle{
+    display: flex;
+    flex-flow: column wrap;
+}
+.middlechild{
+    border: solid black;
+    margin: 3px;
+    padding: 4px;
+}
+.headprice{
+    flex: 0 0 20px;
+}
+.chartbody{
+    flex: 0 0 20px;
+}
+.stockinfo{
+    flex: 0 0 20px;
+}
+#root{
+    height: 400px;
+    width: 500px;
+}
+

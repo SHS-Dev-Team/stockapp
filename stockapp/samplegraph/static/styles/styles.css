@@ -1,9 +1,16 @@
-*{
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
+/* Roboto 400, 500, 700 */
+
+.middle, .right, .middlechild, #chart > div{
     border-radius: 20px;
 }
-
+#chart > div{
+    border-radius: 14px;
+}
+body{
+    background-color: #323140 !important;
+}
 #maincontainer{
-    border: dashed black;
     display: flex;
     flex-flow: row nowrap;
     position: absolute;
@@ -12,46 +19,118 @@
     right: 2px;
     left: 2px;
 }
-.children{
+.middle, .right{
     margin: 5px;
-    background-color: #F2C53D;
+    padding: 5px;
+    background-color: rgba(22, 21, 38,1);
 }
 .left{
-    flex: 1;
-    border: solid brown 6px;
+    flex: 0.8;
 }
 .middle{
+    overflow: auto;
     border: solid black 6px;
-    flex: 3;
+    flex: 4;
+    transition: background-color .5s ease-out;
 }
 .right{
-    border: solid blue 6px;
-    flex: 1;
+    border: solid grey 6px;
+    flex: 2;
+    transition: background-color .5s ease-out;
+}
+.middle:hover, .right:hover{
+    background-color: rgba(22, 21, 38,0.9);
 }
 
 
 /*middle*/
 
-.middle{
+.homechart{
     display: flex;
     flex-flow: column wrap;
 }
 .middlechild{
-    border: solid black;
+    border: dashed black;
     margin: 3px;
     padding: 4px;
+    height: 30px;
 }
 .headprice{
-    flex: 0 0 20px;
+    flex: 1;
 }
 .chartbody{
-    flex: 0 0 20px;
+    flex: 3;
 }
 .stockinfo{
-    flex: 0 0 20px;
-}
-#root{
-    height: 400px;
-    width: 500px;
+    flex: 2;
 }
 
+
+/*Navigation */
+
+.left{
+    display: flex;
+    flex-flow: column nowrap;
+}
+.logo{
+    flex: 1
+}
+.navbar{
+    flex: 9;
+    overflow: hidden;
+}
+.profile{
+    flex: 1;
+}
+
+#profileimage{
+    margin-top:7px;
+    margin-left: 5px;
+    border-radius: 35px;
+    width: 35px;
+    display: inline-block;
+}
+
+#profilename{
+    color: white;
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    margin-left: 12px;
+    transition: color .3s ease-out;
+}
+#profilename:hover{
+    color: rgb(105, 120, 134);
+}
+*{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+li{
+    display: inline;
+    list-style-type: none;
+    margin: 0;
+}
+
+a{
+    color: rgb(105, 120, 134) !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+    font-size: 1.2em;
+    display: block !important;
+    margin-left: -30px !important;
+    padding: .8em 0 !important;
+    transition: color .3s ease-out !important;
+}
+
+#navbar{
+    margin-top: -18em;
+}
+a:hover{
+    color: rgb(255, 255, 255) !important;
+}
+
+p{
+    font-size: 2em;
+}

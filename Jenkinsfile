@@ -41,6 +41,13 @@ pipeline {
         sh './push_docker.sh'
       }
     }
+    stage('login') {
+      steps {
+        withCredentials(bindings: [usernamePassword(credentialsId: 'mac', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
+          sh 'sshpass -p '$PASS' ssh noamtuchman@noams-mbp.home'
+        }
+      }
+    }
 
   }
 }

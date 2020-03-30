@@ -45,7 +45,7 @@ pipeline {
     stage('login') {
       steps {
         withCredentials(bindings: [usernamePassword(credentialsId: 'mac', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
-          sh 'sshpass -p "${PASS}" ssh -t noamtuchman@noams-mbp.home'
+          sh 'sshpass -p "${PASS}" ssh -tt noamtuchman@noams-mbp.home'
         }
 
       }

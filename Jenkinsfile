@@ -46,8 +46,8 @@ pipeline {
       steps {
         withCredentials(bindings: [usernamePassword(credentialsId: 'mac', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
           sh '''sshpass -p "${PASS}" ssh -o StrictHostKeyChecking=no -tt noamtuchman@noams-mbp.home
-minikube start 
-exit'''
+                minikube start 
+                exit'''
         }
 
       }

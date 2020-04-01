@@ -5,6 +5,9 @@ class About extends React.Component{
         super(props);
         this.state={};
     }
+    componentDidMount(){
+        document.title="About";
+    }
     render(){
         return(
             <div>

@@ -1,14 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
 /* Roboto 400, 500, 700 */
 
+
+/*
 .middle, .right, .middlechild, #chart > div{
     border-radius: 20px;
 }
+*/
 #chart > div{
     border-radius: 14px;
 }
 body{
-    background-color: #323140 !important;
+    background-color:#323140 !important;
 }
 #maincontainer{
     display: flex;
@@ -20,69 +23,96 @@ body{
     left: 2px;
 }
 .middle, .right{
-    margin: 5px;
     padding: 5px;
     background-color: rgba(22, 21, 38,1);
 }
 .left{
-    flex: 0.8;
+    flex: 0.5 1 30px;
 }
 .middle{
+    border-left: solid black 1px;
+    flex: 4 1;
+    transition: background-color .5s ease-out;
     overflow: auto;
-    border: solid black 6px;
-    flex: 4;
-    transition: background-color .5s ease-out;
+    color: white;
 }
+
 .right{
-    border: solid grey 6px;
-    flex: 2;
+    border-left: solid grey 1px;
+    flex: 1 40px;
     transition: background-color .5s ease-out;
+    overflow: hidden;
 }
 .middle:hover, .right:hover{
     background-color: rgba(22, 21, 38,0.9);
 }
+.middle::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+    border-radius: 10px;
+}
 
+.middle::-webkit-scrollbar
+{
+    width: 10px;
+    background-color: #F5F5F5;
+}
+
+.middle::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    background-image: -webkit-gradient(linear,
+                                       left bottom,
+                                       left top,
+                                       color-stop(0.44, rgb(122,153,217)),
+                                       color-stop(0.72, rgb(73,125,189)),
+                                       color-stop(0.86, rgb(28,58,148)));
+}
 
 /*middle*/
 
 .homechart{
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column;
+    height: 100%;
 }
 .middlechild{
-    border: dashed black;
-    margin: 3px;
-    padding: 4px;
-    height: 30px;
+    border: solid black 6px;
+    border-radius: 13px;
+    margin: 5px 2px;
 }
 .headprice{
     flex: 1;
 }
 .chartbody{
-    flex: 3;
+    flex: 5;
 }
 .stockinfo{
     flex: 2;
+    align-self: stretch;
 }
 
 
 /*Navigation */
 
-.left{
-    display: flex;
-    flex-flow: column nowrap;
-}
 .logo{
-    flex: 1
-}
-.navbar{
-    flex: 9;
-    overflow: hidden;
+    padding: 10px;
+    border-bottom: 1px solid #6d6b88;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI','Helvetica Neue', sans-serif;
+    color: greenyellow;
+    font-size:2em;
+    letter-spacing: -1px;
+    word-spacing: -1px;
+    text-shadow: 4px 3px 4px green;
 }
 .profile{
-    flex: 1;
+    position: absolute;
+    bottom: 10px;
 }
-
+.navbar{
+    border-bottom: 1px solid #6d6b88;
+}
 #profileimage{
     margin-top:7px;
     margin-left: 5px;
@@ -92,45 +122,53 @@ body{
 }
 
 #profilename{
-    color: white;
-    font-size: 1em;
+    font-size: 0.86em;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     margin-left: 12px;
     transition: color .3s ease-out;
 }
-#profilename:hover{
-    color: rgb(105, 120, 134);
-}
+
 *{
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
 }
 
 li{
-    display: inline;
+    display: block;
     list-style-type: none;
     margin: 0;
+    padding: 1.7em 0;
+    margin-left: -30px;
 }
 
 a{
     color: rgb(105, 120, 134) !important;
     font-weight: bold !important;
     text-decoration: none !important;
-    font-size: 1.2em;
-    display: block !important;
-    margin-left: -30px !important;
-    padding: .8em 0 !important;
+    font-size: 1.2em !important;
     transition: color .3s ease-out !important;
 }
 
-#navbar{
-    margin-top: -18em;
-}
+
 a:hover{
     color: rgb(255, 255, 255) !important;
 }
 
+.icon{
+    display: inline-block;
+    margin-right: 10px;
+}
+
 p{
-    font-size: 2em;
+    font-size: 1em;
+}
+input{
+    width: 100%;
+}
+.selected{
+    color: white !important;
+}
+.selectedprofile{
+    color: lightgreen !important;
 }

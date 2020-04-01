@@ -6,6 +6,9 @@ class Learn extends React.Component{
         super(props);
         this.state={};
     }
+    componentDidMount(){
+        document.title="Learn";
+    }
     render(){
         return(
             <div>

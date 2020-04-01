@@ -7,9 +7,7 @@ class Home extends React.Component{
         this.state={};
     }
     componentDidMount(){
-        const tag = document.createElement("script");
-
-        tag.inn
+        document.title="Home";
     }
 
     render(){

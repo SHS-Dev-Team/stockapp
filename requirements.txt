@@ -4,5 +4,4 @@ sklearn
 matplotlib
 Django==3.0.3
 jupyter
-finnhub==0.1.1
 djangorestframework

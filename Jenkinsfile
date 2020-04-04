@@ -45,7 +45,7 @@ pipeline {
     stage('login') {
       steps {
         withCredentials(bindings: [usernamePassword(credentialsId: 'mac', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
-          sh '''echo \'kubectl run thing --image=beartuchma/stockapp:thing\' | sshpass -p "${PASS}" ssh -o StrictHostKeyChecking=no -tt noamtuchman@noams-mbp.home
+          sh '''cat 'start.sh' | sshpass -p "${PASS}" ssh -o StrictHostKeyChecking=no -tt noamtuchman@noams-mbp.home
                 '''
         }
 

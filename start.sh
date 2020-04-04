@@ -1,2 +1,2 @@
-ls
 minikube start
+exit

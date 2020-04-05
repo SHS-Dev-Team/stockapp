@@ -20,7 +20,9 @@ class App extends React.Component{
             <HashRouter>
                 <div id="maincontainer">
                     <div class = "children left">
-                        <div class = "logo" id="logo">StockApp</div>
+                        <div class = "logo" id="logo">
+                            <span class="colorgrad" display="inline" kind="animated">StockApp</span>
+                        </div>
                         <div class="navbar" id="navbar">
                             <nav>
                                 <ul>

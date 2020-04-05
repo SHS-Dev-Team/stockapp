@@ -6,21 +6,25 @@ import { getData } from "./utils"
 import { TypeChooser } from "react-stockcharts/lib/helper";
 
 class ChartComponent extends React.Component {
+	constructor(props){
+		super(props);
+	}
+
 	componentDidMount() {
-		getData().then(data => {
-			this.setState({ data })
+		getData(this.props.url).then(data => {
+			this.setState({data});
 		})
 	}
 	render() {
 		if (this.state == null) {
-			return <div>Loading...</div>
+			return (<div>
+				<span class="colorgrad loading" display="inline" kind="animated">Loading...</span>
+			</div>)
 		}
 		return (
-			<TypeChooser>
-				{type => <Chart type={type} data={this.state.data} />}
-			</TypeChooser>
+			<Chart type="svg" data={this.state.data} height = {this.props.height}/>
 		)
 	}
 }
-export default ChartComponent;
 
+export default ChartComponent;

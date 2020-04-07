@@ -8,7 +8,7 @@ P/E returns
 Here is a guide on how to run the Django project from your Mac:
 
 1. Make sure you have python installed (latest version or anything above 3.0):
-https://www.python.org/downloads/
+https://www.python.org/downloads/ and node.js installed (https://nodejs.org/en/)
 
 2. Also make sure you have git installed (https://git-scm.com/downloads). This tool allows you to retrieve stuff from github.
 
@@ -33,7 +33,7 @@ https://www.python.org/downloads/
    * **Db.sqlite3**: this is the actual database. It’s not meant to be opened. The models.py file interacts with this. 
    * **Manage.py**: this is the control deck. You use this to run the server, create new apps, or whatever. 
    
-7. Before you can run the server, you must register your models.py file with the database. Cloning this project won’t automatically do this. You have to do this yourself. This is done with these two commands:
+7. Go to the samplegraph folder and run `npm install` to install all dependencies. After that run `npm run dev` to pack all the javascript files into one main.js file (this uses something called webpack). Before you can run the server, you must register your models.py file with the database. Cloning this project won’t automatically do this. You have to do this yourself. This is done with these two commands:
     * `python manage.py makemigrations`
     * `python manage.py migrate`
     * Now you’re ready. Run this command

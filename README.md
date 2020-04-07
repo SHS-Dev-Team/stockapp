@@ -33,7 +33,7 @@ https://www.python.org/downloads/ and node.js installed (https://nodejs.org/en/)
    * **Db.sqlite3**: this is the actual database. It’s not meant to be opened. The models.py file interacts with this. 
    * **Manage.py**: this is the control deck. You use this to run the server, create new apps, or whatever. 
    
-7. Go to the samplegraph folder and run `npm install` to install all dependencies. After that run `npm run dev` to pack all the javascript files into one main.js file (this uses something called webpack). Before you can run the server, you must register your models.py file with the database. Cloning this project won’t automatically do this. You have to do this yourself. This is done with these two commands:
+7. Go to the samplegraph folder and run `npm install` to install all dependencies. After that run `npm run dev` to pack all the javascript files into one main.js file (this uses something called webpack). Now go back to the previous folder (`cd ..`). Before you can run the server, you must register your models.py file with the database. Cloning this project won’t automatically do this. You have to do this yourself. This is done with these two commands:
     * `python manage.py makemigrations`
     * `python manage.py migrate`
     * Now you’re ready. Run this command

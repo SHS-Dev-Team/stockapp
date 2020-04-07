@@ -20,5 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', include('blog.urls')),
     path('test',include('frontendreact.urls')),
-    path('graph/',include('samplegraph.urls')),
+    path('app/',include('samplegraph.urls')),
 ]

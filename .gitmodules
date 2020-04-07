@@ -1,0 +1,3 @@
+[submodule "finnhub-api-client"]
+	path = finnhub-api-client
+	url = https://github.com/s0h3ck/finnhub-api-python-client.git

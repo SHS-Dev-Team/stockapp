@@ -18,5 +18,5 @@ RUN pip install --upgrade pip &&\
 EXPOSE 80
 
 #run main python file with python
-CMD ["python", "manage.py"]
+CMD ["/do.sh"]
 

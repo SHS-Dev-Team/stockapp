@@ -1,3 +1,3 @@
 python stockapp/manage.py makemigrations
 python stockapp/manage.py migrate
-python manage.py runserver
+python stockapp/manage.py runserver

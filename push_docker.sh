@@ -4,6 +4,6 @@ docker build --tag=stockapp .
 
 dockerpath=beartuchman/stockapp
 
-docker tag stockapp ${dockerpath}:thing
+docker tag stockapp ${dockerpath}:thin
 
-docker push ${dockerpath}:thing
+docker push ${dockerpath}:thin

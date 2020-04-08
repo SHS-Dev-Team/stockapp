@@ -52,6 +52,17 @@ class HeaderData extends React.Component{
     }
 }
 
+class FooterData extends React.Component{
+    constructor(props){
+        super(props);
+        this.state={}
+    }
+    render(){
+        return(
+            <div className="footer"></div>
+        );
+    }
+}
 
 class Home extends React.Component{
     constructor(props){

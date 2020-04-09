@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stockapp
+  labels:
+    app: stockapp
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: stockapp
+  template:
+    metadata:
+      labels:
+        app: stockapp
+    spec:
+      containers:
+      - name: thing
+        image: beartuchman/stockapp:thin2
+        ports:
+        - containerPort: 8000

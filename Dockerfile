@@ -1,12 +1,12 @@
 #put python image in dockerfile
 FROM python:3.8.1-buster
 
+ADD . /stockapp
 #make working directory for app
-WORKDIR /app
+WORKDIR /stockapp
 
 #put main python file into working directory
-COPY . stockapp /app/stockapp/
-
+RUN ls
 
 #DO NOT CHANGE {
 ## Step 3:
@@ -15,10 +15,13 @@ COPY . stockapp /app/stockapp/
 RUN pip install --upgrade pip &&\
     pip install --trusted-host pypi.python.org -r requirements.txt
 #}
-COPY do.sh /app/do.sh
+COPY do.sh /root/do.sh
 RUN chmod +x do.sh
+
+RUN ./do.sh
+
 EXPOSE 80
 
 #run main python file with python
-CMD ["./do.sh"]
+CMD ["python", "stockapp/manage.py", "runserver"]
 

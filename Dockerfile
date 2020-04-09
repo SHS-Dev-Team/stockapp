@@ -5,7 +5,8 @@ FROM python:3.8.1-buster
 WORKDIR /app
 
 #put main python file into working directory
-COPY . stockapp/manage.py /app/
+COPY . stockapp /app/stockapp/
+
 
 #DO NOT CHANGE {
 ## Step 3:
@@ -14,9 +15,10 @@ COPY . stockapp/manage.py /app/
 RUN pip install --upgrade pip &&\
     pip install --trusted-host pypi.python.org -r requirements.txt
 #}
-
+COPY do.sh /app/do.sh
+RUN chmod +x do.sh
 EXPOSE 80
 
 #run main python file with python
-CMD ["/do.sh"]
+CMD ["./do.sh"]
 

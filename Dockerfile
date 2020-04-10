@@ -14,6 +14,8 @@ RUN ls
 # hadolint ignore=DL3013
 RUN pip install --upgrade pip &&\
     pip install --trusted-host pypi.python.org -r requirements.txt
+WORKDIR /stockapp/stockapp
+RUN npm install
 #}
 COPY do.sh /root/do.sh
 RUN chmod +x do.sh

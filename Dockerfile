@@ -51,6 +51,8 @@ COPY package*.json ./
 
 RUN npm install
 
+RUN npm run dev
+
 COPY do.sh /root/do.sh
 
 RUN chmod +x do.sh

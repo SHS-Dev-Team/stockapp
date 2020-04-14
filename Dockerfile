@@ -47,9 +47,10 @@ ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 RUN node -v
 RUN npm -v
 
-COPY package*.json ./
-
-RUN npm install
+RUN cd stockapp/samplegraph &&\
+    ls &&\
+    npm install &&\
+    npm run dev
 
 COPY do.sh /root/do.sh
 

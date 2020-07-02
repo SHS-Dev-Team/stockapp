@@ -1,2 +1,2 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import App from "./components2/App";
+import App from "./mainpage/App";

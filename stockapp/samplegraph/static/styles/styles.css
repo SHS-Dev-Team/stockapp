@@ -84,7 +84,7 @@ body{
     border-left: solid black 1px;
     flex: 4 1;
     transition: background-color .5s ease-out;
-    overflow: auto;
+    /*overflow: auto;*/
     color: white;
 }
 
@@ -92,7 +92,6 @@ body{
     border-left: solid grey 1px;
     flex: 1 40px;
     transition: background-color .5s ease-out;
-    overflow: hidden;
 }
 .middle:hover, .right:hover{
     background-color: rgba(22, 21, 38,0.9);
@@ -137,18 +136,10 @@ body{
 }
 .chartbody{
     flex: 5;
-    
-        -webkit-animation: slide-fwd-center 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-                animation: slide-fwd-center 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    -webkit-animation: slide-fwd-center 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-fwd-center 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
-.stockinfo{
-    flex: 2;
-    align-self: stretch;
-    transition: all 1s;
-}
-.stockinfo:hover{
-    flex: 4;
-}
+
 
 
 /*Navigation */
@@ -161,7 +152,6 @@ body{
     font-size:2em;
     letter-spacing: -1px;
     word-spacing: -1px;
-    overflow: hidden;
 }
 .profile{
     position: absolute;
@@ -252,12 +242,36 @@ input{
 .headprice header{
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-evenly
+    justify-content: space-evenly;
+    align-items: baseline;
 }
 .headprice header *{
     width: 10%;
     font-size: 4vw;
 }
+
+/* footer info */
+
+.footerInfo{
+    flex: 2;
+    /* align-self: stretch;*/
+    transition: all 1s;
+    height: 25vh;
+    display: flex;
+    flex-flow: row nowrap;
+    height: 20vh;
+}
+
+.footerInfo *{
+    flex: 1;
+    margin: 5px;
+    overflow: auto;
+}
+
+.footerInfo:hover{
+    flex: 5;
+}
+
 
 
 /* right */
@@ -287,3 +301,9 @@ li{
 .right{
     overflow:auto;
 }
+
+.react-stockchart{
+    overflow: hidden;
+}
+
+

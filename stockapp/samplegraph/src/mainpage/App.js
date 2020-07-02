@@ -380,7 +380,7 @@ class App extends React.Component{
                             </nav>
                             
                             <Route exact path="/">
-                                <Home tic={this.state.selected} url={`https://sandbox.iexapis.com/stable/stock/${this.state.selected}/chart/max?token=Tpk_1f76b2afcb3e466bb0ab9b034388e043&format=csv`} />
+                                <Home tic={this.state.selected} url={`https://cloud.iexapis.com/stable/stock/${this.state.selected}/chart/max?token=pk_35a122993a8b4f21b4d39c2076ed034c&format=csv`} />
                             </Route>
                             {/*<Route path="/learn">
                                 <Learn />

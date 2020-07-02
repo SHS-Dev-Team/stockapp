@@ -13,15 +13,17 @@ class ChartComponent extends React.Component {
 
 	componentDidMount() {
 		getData(this.state.url).then(dt => {
-			this.setState({data:dt});
-			this.setState({ready:true});
+			this.setState({
+				data:dt,
+				ready:true
+			});
 		});
 		
 	}
 	componentDidUpdate(prevProps){
 		if(prevProps.url !== this.props.url){
 			this.setState({url:this.props.url});
-			getData(this.state.url).then(dt => {
+			getData(this.props.url).then(dt => {
 				this.setState({data:dt});
 				this.setState({ready:true});
 			});

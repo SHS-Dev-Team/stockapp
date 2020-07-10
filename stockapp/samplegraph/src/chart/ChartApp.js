@@ -27,7 +27,7 @@ class ChartComponent extends React.Component {
 				this.setState({data:dt});
 				this.setState({ready:true});
 			});
-		}
+		}	
 	}
 	static getDerivedStateFromError(error) {
 		console.log(error);

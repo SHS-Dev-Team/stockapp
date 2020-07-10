@@ -6,7 +6,7 @@ import {
     HashRouter
 } from "react-router-dom";
 import Select from 'react-select';
-import Home from './newnavpages/Home';
+import Home from './navpages/Home';
 
 class Results extends React.Component{
     _isMounted = false;
@@ -165,7 +165,7 @@ class App extends React.Component{
                         <li className="nav-item">
                             <NavLink className="nav-link" to='/profile' activeClassName="selectedprofile">
                                 <i className="fas fa-fw fa-chart-area"></i>
-                                Profile
+                                <span>Profile</span>
                             </NavLink>
                         </li> 
                             
@@ -179,7 +179,7 @@ class App extends React.Component{
                         <li className="nav-item">
                             <NavLink className="nav-link"to="/about" activeClassName="selected">
                                 <i className="fas fa-fw fa-table"></i>
-                                About
+                                <span>About</span>
                             </NavLink>
                         </li>
 
@@ -207,7 +207,7 @@ class App extends React.Component{
                                 {/* Topbar Search */}
                                 <form className="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" onSubmit={this.selectedTicker}>
                                     <div className="input-group">
-                                    <input onChange = {this.searchTicker} type="text" className="form-control bg-light border-0 small" placeholder="Search Ticker" aria-label="Search" aria-describedby="basic-addon2" list="tickresults" id="listinput"></input>
+                                    <input onChange = {this.searchTicker} type="text" className="form-control bg-light border-0 small" autoComplete="off" placeholder="Search Ticker" aria-label="Search" aria-describedby="basic-addon2" list="tickresults" id="listinput"></input>
                                     <div className="input-group-append">
                                         <button className="btn btn-primary" type="submit">
                                             <i className="fas fa-search fa-sm"></i>
@@ -380,7 +380,7 @@ class App extends React.Component{
                             </nav>
                             
                             <Route exact path="/">
-                                <Home tic={this.state.selected} url={`https://cloud.iexapis.com/stable/stock/${this.state.selected}/chart/max?token=pk_35a122993a8b4f21b4d39c2076ed034c&format=csv`} />
+                                <Home tic={this.state.selected} url={`https://sandbox.iexapis.com/stable/stock/${this.state.selected}/chart/max?token=Tpk_1f76b2afcb3e466bb0ab9b034388e043&format=csv`} />
                             </Route>
                             {/*<Route path="/learn">
                                 <Learn />

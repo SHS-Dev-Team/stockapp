@@ -60,6 +60,8 @@ RUN ./do.sh
 
 EXPOSE 80
 
+EXPOSE 8000
+
 #run main python file with python
 CMD ["python", "stockapp/manage.py", "runserver"]
 

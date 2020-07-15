@@ -82,7 +82,12 @@ class App extends React.Component{
     searchTicker(e){
         let tic = e.target.value;
         if(this.state.ticker!==tic){
-            this.setState({ticker: tic.toUpperCase()});
+            fetch(`https://sandbox.iexapis.com/stable/stock/${tic}/company?token=Tpk_1f76b2afcb3e466bb0ab9b034388e043`)
+            .then(res=>{
+                if(res.ok){
+                    this.setState({ticker: tic.toUpperCase()});
+                }
+            })
         }
     }
     selectedTicker(e){
@@ -350,8 +355,8 @@ class App extends React.Component{
                                     {/* Nav Item - User Information */}
                                     <li className="nav-item dropdown no-arrow">
                                     <a className="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span className="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
-                                        <img className="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60"></img>
+                                        <span className="mr-2 d-none d-lg-inline text-gray-600 small">Mahdi Soltan</span>
+                                        <img className="img-profile rounded-circle" src="https://img-lumas-avensogmbh1.netdna-ssl.com/showimg_tmu02_full.jpg"></img>
                                     </a>
                                     {/* Dropdown - User Information */}
                                     <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

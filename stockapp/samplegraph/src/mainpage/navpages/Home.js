@@ -5,6 +5,9 @@ import ChartComponent from '../../chart/ChartApp'
 function formatPrice(price){
     const total  = price.toString();
     const len = total.indexOf('.');
+    if(len===-1){
+        return '$'+total+'.00'
+    }
     const dollar = total.substring(0,len).split('').reverse().join('');
     var newdollar = '';
     for(const num in dollar){
@@ -27,8 +30,8 @@ class FirstRow extends React.Component{
 
     render(){
         return (
-            <div className="row">
-                {/* Earnings (Monthly) Card Example  */ }
+            <div className="row">   {/* heading data */ }
+                {/* Ticker  */ }
                 <div className="col-xl-3 col-md-6 mb-4">
                 <div className="card border-left-primary shadow h-100 py-2">
                     <div className="card-body">
@@ -46,7 +49,7 @@ class FirstRow extends React.Component{
                 </div>
                 </div>
 
-                {/* Earnings (Monthly) Card Example  */ }
+                {/* Price  */ }
                 <div className="col-xl-3 col-md-6 mb-4">
                 <div className="card border-left-success shadow h-100 py-2">
                     <div className="card-body">
@@ -65,7 +68,7 @@ class FirstRow extends React.Component{
 
                 
 
-                {/* Pending Requests Card Example  */ }
+                {/* 24hr price change  */ }
                 <div className="col-xl-3 col-md-6 mb-4">
                 <div className="card border-left-warning shadow h-100 py-2">
                     <div className="card-body">
@@ -85,20 +88,60 @@ class FirstRow extends React.Component{
         );
     }
 }
-function NewsFeed(props){
+function NewsFeed(props){   {/* Listing news articles */ }
     return(
-        <ul style={{listStyleType:"none"}}>
+        <ul style={{listStyleType:"none"}}>  
             {
                 props.newsData.slice(0,5).map(obj=>{
                     return(
-                        <li key={obj.url} style={{borderBottom:"0.5px solid lightgrey"}}><a style={{color:"inherit",margin:"0"}} href={obj.url}><span style={{fontSize:"0.8rem"}}>{obj.headline}</span></a></li>
+                        <li className="newslink" key={obj.url}><a style={{color:"#1a0dab"}} href={obj.url}><span className="newslink">{obj.headline}</span></a></li>
                     );
                 })
             }
         </ul>
     );
 }
-
+function NewsData(props){
+    return(
+        
+            <div className="card shadow mb-4">  {/* Latest News */ }
+                <div className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 className="m-0 font-weight-bold text-primary">Latest News</h6>
+                    <div className="dropdown no-arrow">
+                        <a className="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i className="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                        </a>
+                        <div className="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                            <div className="dropdown-header">Dropdown Header:</div>
+                            <a className="dropdown-item" href="#">Action</a>
+                            <a className="dropdown-item" href="#">Another action</a>
+                            <div className="dropdown-divider"></div>
+                            <a className="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
+                </div>
+                {/* Card Body */}
+                <div className="card-body">
+                    <div className="chart-pie">
+                        <ul style={{listStyleType:"none"}}>  
+                        {
+                            props.newsData.slice(0,5).map(obj=>{
+                                return(
+                                    <li className="newslink" key={obj.url}>
+                                        {/* <a style={{color:"#1a0dab"}} href={obj.url}><span className="newslink">{obj.headline}</span></a> */}
+                                        <a style={{color:"#1a0dab"}} href={obj.url}><span className="h5 mb-0 font-weight-bold text-gray-800">{obj.headline}</span></a>
+                                        <div className="text-xs font-weight-bold text-secondary text-uppercase mb-1">{obj.source}</div>
+                                    </li>
+                                );
+                            })
+                        }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+    );
+}
 class SecondRow extends React.Component{
     constructor(props){
         super(props);
@@ -106,63 +149,30 @@ class SecondRow extends React.Component{
     render(){
         console.log(this.props.newsData);
         return (
-        <div className="row">
-
-                        {/* Area Chart  */ }
-                        <div className="col-xl-8 col-lg-7">
-                        <div className="card shadow mb-4">
-                            {/* Card Header - Dropdown  */ }
-                            <div className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <h6 className="m-0 font-weight-bold text-primary">Chart</h6>
-                            <div className="dropdown no-arrow">
-                                <a className="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i className="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                </a>
-                                <div className="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                                <div className="dropdown-header">Dropdown Header:</div>
-                                <a className="dropdown-item" href="#">Action</a>
-                                <a className="dropdown-item" href="#">Another action</a>
-                                <div className="dropdown-divider"></div>
-                                <a className="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </div>
-                            </div>
-                            {/* Card Body  */ }
-                            <div className="card-body">
-                            <div className="chart-area">
-                                <ChartComponent height={320} url={this.props.url}/>
-                                {/* <canvas id="myAreaChart"></canvas> */}
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                        <div className="col-xl-4 col-lg-5">
-                            <div className="card shadow mb-4">
-                                {/* Card Header - Dropdown */}
-                                <div className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 className="m-0 font-weight-bold text-primary">Latest News</h6>
-                                <div className="dropdown no-arrow">
-                                    <a className="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i className="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                    </a>
-                                    <div className="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                                    <div className="dropdown-header">Dropdown Header:</div>
-                                    <a className="dropdown-item" href="#">Action</a>
-                                    <a className="dropdown-item" href="#">Another action</a>
-                                    <div className="dropdown-divider"></div>
-                                    <a className="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </div>
-                                </div>
-                                {/* Card Body */}
-                                <div className="card-body">
-                                    <div className="chart-pie">
-                                <NewsFeed newsData={this.props.newsData} />
-                                </div>
-                                </div>
-                            </div>
+            <div className="card shadow mb-4">     {/*Price Chart*/ }
+                <div className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 className="m-0 font-weight-bold text-primary">Chart</h6>
+                    <div className="dropdown no-arrow">
+                        <a className="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i className="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                        </a>
+                        <div className="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                            <div className="dropdown-header">Dropdown Header:</div>
+                            <a className="dropdown-item" href="#">Action</a>
+                            <a className="dropdown-item" href="#">Another action</a>
+                            <div className="dropdown-divider"></div>
+                            <a className="dropdown-item" href="#">Something else here</a>
                         </div>
                     </div>
+                </div>
+                {/* Card Body  */ }
+                <div className="card-body">
+                    <div className="chart-area">
+                        <ChartComponent height={320} url={this.props.url}/>
+                        {/* <canvas id="myAreaChart"></canvas> */}
+                    </div>
+                </div>
+            </div>     
         );
     }
 }
@@ -179,6 +189,7 @@ class Home extends React.Component{
         this.fetchData= this.fetchData.bind(this);
     }
     fetchData(){
+        {/* Fetch ticker stats */ }
         const link = `https://cloud.iexapis.com/stable/stock/${this.props.tic}/batch?types=quote,news&token=pk_35a122993a8b4f21b4d39c2076ed034c`
         fetch(link)
         .then(response=>{
@@ -203,20 +214,24 @@ class Home extends React.Component{
                     companyName: info.companyName,
                     latestPrice: info.latestPrice,
                     changePercent: info.changePercent
-                }
+                },
+                yrhigh: info.week52High,
+                yrlow: info.week52Low,
+                peratio: info.peRatio
             });
             for(var newsVar of news){
                 this.setState(state=>{
                     state.newsData.push(newsVar);
                 });
             }
-            this.setState({ready:true});
+            
         })
         .catch(err=>{
             const message = err.message;
             console.log(message);
             this.setState({err:message,found: false});
         });
+        {/* Fetch company about info */ }
         const second = `https://cloud.iexapis.com/stable/stock/${this.props.tic}/company?token=pk_35a122993a8b4f21b4d39c2076ed034c`
         fetch(second)
         .then(res=>{
@@ -227,6 +242,8 @@ class Home extends React.Component{
                 about: data.description
             })
         });
+
+        {/* Fetch sharpe ratio from backend */ }
         fetch(`django?tic=${this.props.tic}`,{
             method:"GET"
         })
@@ -263,50 +280,47 @@ class Home extends React.Component{
             return(
                 <div className="container-fluid">
     
-                    {/* Content Row  */ }
+                   
                     <FirstRow tic={this.props.tic} data={this.state.headerData} />
-    
-                    {/* Content Row  */ }
-    
-                    <SecondRow url={this.props.url} newsData={this.state.newsData} />
-    
-                    {/* Content Row  */ }
                     <div className="row">
-    
-                        {/* Content Column  */ }
-                        <div className="col-lg-6 mb-4">
-    
-                        {/* Project Card Example  */ }
-                        <div className="card shadow mb-4">
-                            <div className="card-header py-3">
-                            <h6 className="m-0 font-weight-bold text-primary">About</h6>
-                            </div>
-                            <div className="card-body">
-                                {this.state.about}2
-                            </div>
-                        </div>
-                        </div>
-                        {/* Color System  */ }
-    
-                        <div className="col-lg-6 mb-4">
+                    <div className="col-lg-6 mb-4">
+                        <SecondRow url={this.props.url} />
 
-                        {/* Approach  */ }
-                        <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Stats</h6>
-                </div>
-                <div class="card-body">
-                  <h4 class="small font-weight-bold">Sharpe Ratio<span class="float-right">{this.state.sharpe}</span></h4> 
-                  <h4 class="small font-weight-bold">Standard Deviation<span class="float-right">{this.state.std}</span></h4>
-                  <h4 class="small font-weight-bold">Customer Database <span class="float-right">60%</span></h4>
-                  <h4 class="small font-weight-bold">Payout Details <span class="float-right">80%</span></h4>
-                  <h4 class="small font-weight-bold">Account Setup <span class="float-right">Complete!</span></h4>
-                </div>
-              </div>
+                        <div className="row">
+                        <div className="col-lg-6 mb-4">
+                            <div className="card shadow mb-4">
+                                <div className="card-header py-3">
+                                    <h6 className="m-0 font-weight-bold text-primary">About</h6>
+                                </div>
+                                <div className="card-body">
+                                    {this.state.about}2
+                                </div>
+                            </div>
+                        </div>
+                        
     
+                        <div className="col-lg-6 mb-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Stats</h6>
+                                </div>
+                                    <div class="card-body">
+                                        <h4 class="small font-weight-bold">Sharpe Ratio<span class="float-right">{this.state.sharpe}</span></h4> 
+                                        <h4 class="small font-weight-bold">Standard Deviation<span class="float-right">{this.state.std}</span></h4>
+                                        <h4 class="small font-weight-bold">52 Week High <span class="float-right">${this.state.yrhigh}</span></h4>
+                                        <h4 class="small font-weight-bold">52 Week Low<span class="float-right">${this.state.yrlow}</span></h4>
+                                        <h4 class="small font-weight-bold">Price to Earnings Ratio<span class="float-right">{this.state.peratio}</span></h4>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <div className="col-lg-6 mb-4">
+                        <NewsData newsData={this.state.newsData} />
+                    </div>
+                    </div>
+                    </div>
+                    
             );
         }
         

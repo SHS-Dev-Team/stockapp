@@ -11000,7 +11000,14 @@ body.sidebar-toggled footer.sticky-footer {
 
 
 /* added by Mahdi */
+li.newslink {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 60px;
+  border-bottom: 0.5px solid lightgrey;
+}
 
-.about {
-
+span.newslink:hover{
+  text-decoration: underline;
 }

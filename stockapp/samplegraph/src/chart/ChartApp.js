@@ -36,7 +36,7 @@ class ChartComponent extends React.Component {
 	render() {
 		if (!this.state.ready) {
 			return (<div>
-				<span class="colorgrad loading" display="inline" kind="animated">Loading...</span>
+				<span className="colorgrad loading" display="inline" kind="animated">Loading...</span>
 			</div>)
 		}
 		return (

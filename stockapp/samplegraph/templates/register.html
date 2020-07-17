@@ -1,0 +1,7 @@
+<form action="{% url 'register' %}" method="post">
+    {% csrf_token %}
+    Username <input type = "text" name = "name" ><br><br>
+    Password <br><textarea name="text" cols="40" rows="10"></textarea><br>
+    <input type="submit" value="Submit">
+</form>
+<h1>{{result}}</h1>

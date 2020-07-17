@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Select from 'react-select';
 import Home from './navpages/Home';
+import Learn from './navpages/Learn';
 
 class Results extends React.Component{
     _isMounted = false;
@@ -73,7 +74,8 @@ class App extends React.Component{
         super(props);
         this.state={
             ticker: "",
-            selected: ""
+            selected: "",
+            username:"Loading.."
             //"https://sandbox.iexapis.com/stable/stock/googl/chart/1m?token=Tpk_1f76b2afcb3e466bb0ab9b034388e043?format=csv"
         }
         this.searchTicker = this.searchTicker.bind(this);
@@ -94,6 +96,17 @@ class App extends React.Component{
         e.preventDefault();
         this.setState({selected:this.state.ticker});
     }
+    componentDidMount(){
+        fetch('api/user')
+        .then(res=>{
+            return res.json()
+        })
+        .then(data=>{
+            this.setState({
+                username: data.username
+            });
+        })
+    }
     render(){
         return (
             <HashRouter> 
@@ -102,9 +115,9 @@ class App extends React.Component{
                     <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">            
 
                     { /*Sidebar - Brand */}
-                        <a className="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                        <a className="sidebar-brand d-flex align-items-center justify-content-center" href="/app">
                             <div className="sidebar-brand-icon rotate-n-15">
-                            <i className="fas fa-laugh-wink"></i>
+                            <i class="fas fa-chart-line"></i>
                             </div>
                             <div className="sidebar-brand-text mx-3"><span className ="colorgrad" display="inline" kind="animated">Imperium</span></div>
                         </a>
@@ -132,13 +145,13 @@ class App extends React.Component{
                         { /* Nav Item - Pages Collapse Menu */ }
                         <li className="nav-item">
                             <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                            <i className="fas fa-fw fa-cog"></i>
+                            <i class="fas fa-landmark"></i>
                             <span>Basics</span>
                             </a>
                             <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                             <div className="bg-white py-2 collapse-inner rounded">
                                 <h6 className="collapse-header">Categories</h6>
-                                <NavLink className= "collapse-item" to="/learn" activeClassName="selected">Learn</NavLink>
+                                <NavLink className= "collapse-item" to="learn" activeClassName="selected">Learn</NavLink>
                                 <a className="collapse-item" href="#">Articles</a>
                             </div>
                             </div>
@@ -147,7 +160,7 @@ class App extends React.Component{
                         { /* Nav Item - Utilities Collapse Menu */ }
                         <li className="nav-item">
                             <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                            <i className="fas fa-fw fa-wrench"></i>
+                            <i class="fas fa-chess-pawn"></i>
                             <span>Strategies</span>
                             </a>
                             <div id="collapseUtilities" className="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
@@ -169,21 +182,21 @@ class App extends React.Component{
                         { /* Nav Item - Charts */ }\
                         <li className="nav-item">
                             <NavLink className="nav-link" to='/profile' activeClassName="selectedprofile">
-                                <i className="fas fa-fw fa-chart-area"></i>
+                            <i class="fas fa-user"></i>
                                 <span>Profile</span>
                             </NavLink>
                         </li> 
                             
                         <li className="nav-item">
                             <a className="nav-link" href="#">
-                            <i className="fas fa-fw fa-chart-area"></i>
+                            <i class="fas fa-envelope"></i>
                             <span>Contact</span></a>
                         </li>
 
                         { /* Nav Item - Tables */ }
                         <li className="nav-item">
                             <NavLink className="nav-link"to="/about" activeClassName="selected">
-                                <i className="fas fa-fw fa-table"></i>
+                                <i class="fab fa-black-tie"></i>
                                 <span>About</span>
                             </NavLink>
                         </li>
@@ -250,9 +263,9 @@ class App extends React.Component{
                                     <a className="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i className="fas fa-bell fa-fw"></i>
                                         {/* Counter - Alerts */}
-                                        <span className="badge badge-danger badge-counter">3+</span>
+                                        <span className="badge badge-danger badge-counter"></span>
                                     </a>
-                                    {/* Dropdown - Alerts */}
+                                    {/* Dropdown - Alerts */}{/*
                                     <div className="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                                         <h6 className="dropdown-header">
                                         Alerts Center
@@ -291,7 +304,7 @@ class App extends React.Component{
                                         </div>
                                         </a>
                                         <a className="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-                                    </div>
+                                    </div> */}
                                     </li>
 
                                     {/* Nav Item - Messages */}
@@ -299,9 +312,9 @@ class App extends React.Component{
                                     <a className="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i className="fas fa-envelope fa-fw"></i>
                                         {/* Counter - Messages */}
-                                        <span className="badge badge-danger badge-counter">7</span>
+                                        <span className="badge badge-danger badge-counter"></span>
                                     </a>
-                                    {/* Dropdown - Messages */}
+                                    {/* Dropdown - Messages */}{/*
                                     <div className="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                                         <h6 className="dropdown-header">
                                         Message Center
@@ -347,7 +360,7 @@ class App extends React.Component{
                                         </div>
                                         </a>
                                         <a className="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-                                    </div>
+                                    </div> */}
                                     </li>
 
                                     <div className="topbar-divider d-none d-sm-block"></div>
@@ -355,8 +368,8 @@ class App extends React.Component{
                                     {/* Nav Item - User Information */}
                                     <li className="nav-item dropdown no-arrow">
                                     <a className="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span className="mr-2 d-none d-lg-inline text-gray-600 small">Mahdi Soltan</span>
-                                        <img className="img-profile rounded-circle" src="https://img-lumas-avensogmbh1.netdna-ssl.com/showimg_tmu02_full.jpg"></img>
+                                        <span className="mr-2 d-none d-lg-inline text-gray-600 medium">{this.state.username}</span>
+                                        <img className="img-profile rounded-circle" src="https://img.icons8.com/pastel-glyph/2x/plus.png"></img>
                                     </a>
                                     {/* Dropdown - User Information */}
                                     <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -373,7 +386,7 @@ class App extends React.Component{
                                         Activity Log
                                         </a>
                                         <div className="dropdown-divider"></div>
-                                        <a className="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                        <a className="dropdown-item" href="../logout">
                                         <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Logout
                                         </a>
@@ -386,7 +399,10 @@ class App extends React.Component{
                             
                             <Route exact path="/">
                                 <Home tic={this.state.selected} url={`https://sandbox.iexapis.com/stable/stock/${this.state.selected}/chart/max?token=Tpk_1f76b2afcb3e466bb0ab9b034388e043&format=csv`} />
-                            </Route>
+                            </Route> 
+                            <Route path="/learn">
+                                <Learn />
+                            </Route> 
                             {/*<Route path="/learn">
                                 <Learn />
                             </Route>

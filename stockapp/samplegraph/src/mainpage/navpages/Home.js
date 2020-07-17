@@ -42,7 +42,7 @@ class FirstRow extends React.Component{
                         <div className="text-xs font-weight-bold text-secondary text-uppercase mb-1">{this.props.data.companyName}</div>
                         </div>
                         <div className="col-auto">
-                        <i className="fas fa-calendar fa-2x text-gray-300"></i>
+                        <i class="fas fa-building fa-2x text-gray-300"></i>
                         </div>
                     </div>
                     </div>
@@ -78,7 +78,7 @@ class FirstRow extends React.Component{
                         <div className="h5 mb-0 font-weight-bold text-gray-800">{this.props.data.changePercent}%</div>
                         </div>
                         <div className="col-auto">
-                        <i className="fas fa-comments fa-2x text-gray-300"></i>
+                        <i className="fas fa-percentage fa-2x text-gray-300"></i>
                         </div>
                     </div>
                     </div>
@@ -244,7 +244,7 @@ class Home extends React.Component{
         });
 
         {/* Fetch sharpe ratio from backend */ }
-        fetch(`django?tic=${this.props.tic}`,{
+        fetch(`api/stats?tic=${this.props.tic}`,{
             method:"GET"
         })
         .then(res=>{
@@ -273,7 +273,9 @@ class Home extends React.Component{
     render(){
         if(this.props.tic.length===0 || !this.state.ready){
             return(
-                <h1 className="h3 mb-0 text-gray-800" style={{marginLeft:"3%",textAlign:"center",top:"100px"}}><span className ="colorgrad" display="inline" kind="animated">Select a stock from above</span></h1>
+                <div>
+                    <i class="icon-spinner icon-spin icon-medium"></i><h1 className="h3 mb-0 text-gray-800" style={{marginLeft:"3%",textAlign:"center",top:"100px"}}><span className ="colorgrad" display="inline" kind="animated">Select a stock from above</span></h1>
+                </div>
             );
         }
         else{
@@ -300,16 +302,16 @@ class Home extends React.Component{
                         
     
                         <div className="col-lg-6 mb-4">
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Stats</h6>
+                            <div className="card shadow mb-4">
+                                <div className="card-header py-3">
+                                <h6 className="m-0 font-weight-bold text-primary">Stats</h6>
                                 </div>
-                                    <div class="card-body">
-                                        <h4 class="small font-weight-bold">Sharpe Ratio<span class="float-right">{this.state.sharpe}</span></h4> 
-                                        <h4 class="small font-weight-bold">Standard Deviation<span class="float-right">{this.state.std}</span></h4>
-                                        <h4 class="small font-weight-bold">52 Week High <span class="float-right">${this.state.yrhigh}</span></h4>
-                                        <h4 class="small font-weight-bold">52 Week Low<span class="float-right">${this.state.yrlow}</span></h4>
-                                        <h4 class="small font-weight-bold">Price to Earnings Ratio<span class="float-right">{this.state.peratio}</span></h4>
+                                    <div className="card-body">
+                                        <h4 className="small font-weight-bold">Sharpe Ratio<span className="float-right">{this.state.sharpe}</span></h4> 
+                                        <h4 className="small font-weight-bold">Standard Deviation<span className="float-right">{this.state.std}</span></h4>
+                                        <h4 className="small font-weight-bold">52 Week High <span className="float-right">${this.state.yrhigh}</span></h4>
+                                        <h4 className="small font-weight-bold">52 Week Low<span className="float-right">${this.state.yrlow}</span></h4>
+                                        <h4 className="small font-weight-bold">Price to Earnings Ratio<span className="float-right">{this.state.peratio}</span></h4>
                                     </div>
                                 </div>
                             </div>

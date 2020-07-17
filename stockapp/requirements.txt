@@ -7,3 +7,4 @@ jupyter
 djangorestframework
 nodejs
 npm
+django-allauth

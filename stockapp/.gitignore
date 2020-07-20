@@ -1,5 +1,13 @@
 frontendreact/
 .sqlite3
-frontendreact/node_modules
+node_modules
+__pycache__
+static/
 samplegraph/node_modules
-samplegraph/static/samplegraph/main.js
+samplegraph/webpack.config.js
+samplegraph/package.json
+samplegraph/package-lock.json
+samplegraph/.babelrc
+samplegraph/src
+cors-json.json
+db.sqlite3

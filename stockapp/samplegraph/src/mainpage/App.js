@@ -24,7 +24,7 @@ class Results extends React.Component{
         this._isMounted=true;
         if(prevProps.search!=this.props.search){
             
-            const link = `http://cloud.iexapis.com/stable/search/${this.props.search}?token=pk_35a122993a8b4f21b4d39c2076ed034c`;
+            const link = `https://cloud.iexapis.com/stable/search/${this.props.search}?token=pk_35a122993a8b4f21b4d39c2076ed034c`;
 
             fetch(link)
             .then(response=>{

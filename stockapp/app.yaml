@@ -1,0 +1,21 @@
+# [START runtime]
+runtime: python
+env: flex
+entrypoint: gunicorn -b :$PORT stockapp.wsgi
+
+beta_settings:
+    cloud_sql_instances: megajesus:us-east4:imperiumdatabase
+
+runtime_config:
+  python_version: 3
+# [END runtime]
+
+automatic_scaling:
+    min_num_instances: 1
+    max_num_instances: 7   
+
+handlers:
+- url: /*
+  static_dir: /
+  http_headers:
+    Access-Control-Allow-Origin: '*'

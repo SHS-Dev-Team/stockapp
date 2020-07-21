@@ -1,7 +1,6 @@
 frontendreact/
-.sqlite3
+*.sqlite3
 node_modules
-__pycache__
 stockapp/samplegraph/node_modules
 stockapp/samplegraph/webpack.config.js
 stockapp/samplegraph/package.json
@@ -11,3 +10,4 @@ stockapp/samplegraph/src
 stockapp/static/
 cors-json.json
 db.sqlite3
+__pycache__

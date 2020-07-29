@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: thing
-        image: beartuchman/stockapp:thin2
+        image: beartuchman/stockapp:thing
         ports:
         - containerPort: 8000

@@ -25,7 +25,15 @@ SECRET_KEY = 'l_g#s+pzxe9pm=)uo*o&=(99^9g)v$+vixc13t7k+l--06v$@n'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = ['*']
+=======
+if DEBUG:
+    ALLOWED_HOSTS=["*"]
+else:
+    ALLOWED_HOSTS = ['*']
+    #ALLOWED_HOSTS = ["127.0.0.1","https://megajesus.uk.r.appspot.com"]
+>>>>>>> 6ee45a4dfa55efb933366ddf9e5e3fc16342bb28
 
 
 # Application definition
@@ -38,7 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'samplegraph',
+    'samplegraph.apps.SamplegraphConfig'
 ]
 
 MIDDLEWARE = [
@@ -71,16 +79,39 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'stockapp.wsgi.application'
 
+# [START dbconfig]
 
-# Database
-# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'imperium',
+        'USER': 'mahdi',
+        'PASSWORD': 'meepmeep12',
+        'PORT': '5432',
     }
 }
+
+
+
+# In the flexible environment, you connect to CloudSQL using a unix socket.
+# Locally, you can use the CloudSQL proxy to proxy a localhost connection
+# to the instance
+DATABASES['default']['HOST'] = '/cloudsql/megajesus:us-east4:imperiumdatabase'
+if os.getenv('GAE_INSTANCE'):
+    pass
+else:
+    DATABASES['default']['HOST'] = '127.0.0.1'
+# [END dbconfig]
+
+# Use a in-memory sqlite3 database when testing in CI systems
+if os.getenv('TRAMPOLINE_CI', None):
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
+        }
+    }
 
 
 # Password validation
@@ -124,5 +155,18 @@ REST_FRAMEWORK = {
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-STATIC_URL = 'static'
-STATIC_URL = '/static/'
+# [START staticurl]
+# Fill in your cloud bucket and switch which one of the following 2 lines
+# is commented to serve static content from GCS
+STATIC_URL = 'https://storage.googleapis.com/imperiumstatic/static/'
+STATIC_ROOT ='static'
+
+#STATIC_URL = '/static/'
+
+
+
+
+
+LOGIN_REDIRECT_URL = 'dashboard'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'landing'

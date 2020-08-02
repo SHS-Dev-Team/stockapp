@@ -25,11 +25,15 @@ SECRET_KEY = 'l_g#s+pzxe9pm=)uo*o&=(99^9g)v$+vixc13t7k+l--06v$@n'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+<<<<<<< HEAD
+ALLOWED_HOSTS = ['*']
+=======
 if DEBUG:
     ALLOWED_HOSTS=["*"]
 else:
     ALLOWED_HOSTS = ['*']
     #ALLOWED_HOSTS = ["127.0.0.1","https://megajesus.uk.r.appspot.com"]
+>>>>>>> 6ee45a4dfa55efb933366ddf9e5e3fc16342bb28
 
 
 # Application definition

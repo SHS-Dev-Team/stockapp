@@ -14,38 +14,49 @@ pipeline {
 
 
 
-                                                                                                                                                                                                                                                                                                 mkdir -p ~/.aws
-                                                                                                                                                                                                                                                                                                 echo "[default]" >~/.aws/credentials
-                                                                                                                                                                                                                                                                                                 echo "[default]" >~/.boto
-                                                                                                                                                                                                                                                                                                 echo "aws_access_key_id = ${AWS_ACCESS_KEY_ID}" >>~/.boto
-                                                                                                                                                                                                                                                                                                 echo "aws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}" >>~/.boto
-                                                                                                                                                                                                                                                                                                 echo "aws_access_key_id = ${AWS_ACCESS_KEY_ID}" >>~/.aws/credentials
-                                                                                                                                                                                                                                                                                                 echo "aws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}" >>~/.aws/credentials
-                                                                                                                                                                                                                                                                                                   """
+                                                                                                                                                                                                                                                                                                                                                                                           mkdir -p ~/.aws
+                                                                                                                                                                                                                                                                                                                                                                                           echo "[default]" >~/.aws/credentials
+                                                                                                                                                                                                                                                                                                                                                                                           echo "[default]" >~/.boto
+                                                                                                                                                                                                                                                                                                                                                                                           echo "aws_access_key_id = ${AWS_ACCESS_KEY_ID}" >>~/.boto
+                                                                                                                                                                                                                                                                                                                                                                                           echo "aws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}" >>~/.boto
+                                                                                                                                                                                                                                                                                                                                                                                           echo "aws_access_key_id = ${AWS_ACCESS_KEY_ID}" >>~/.aws/credentials
+                                                                                                                                                                                                                                                                                                                                                                                           echo "aws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}" >>~/.aws/credentials
+                                                                                                                                                                                                                                                                                                                                                                                             """
         }
 
       }
     }
 
     stage('docker login') {
-      steps {
-        withCredentials(bindings: [usernamePassword(credentialsId: 'docker', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
-          sh 'docker login --username $USER --password $PASS'
+      parallel {
+        stage('docker login') {
+          steps {
+            withCredentials(bindings: [usernamePassword(credentialsId: 'docker', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
+              sh 'docker login --username $USER --password $PASS'
+            }
+
+          }
+        }
+
+        stage('google login') {
+          steps {
+            sh 'ls; cd stockapp/; gcloud auth activate-service-account burrow@megajesus.iam.gserviceaccount.com --key-file=megajesus-aa7a78652074.json; gcloud config set project megajesus'
+          }
         }
 
       }
     }
 
-    stage('push docker') {
+    stage('google') {
       steps {
-        sh './push_docker.sh'
+        sh 'ls; cd stockapp/; echo \'y\' | gcloud app deploy'
       }
     }
 
     stage('login') {
       steps {
         withCredentials(bindings: [usernamePassword(credentialsId: 'mac', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
-          sh '''cat 'start.sh' | sshpass -p "${PASS}" ssh -o StrictHostKeyChecking=no -tt noamtuchman@noams-mbp.home
+          sh '''echo """cat \'start.sh\' | sshpass -p "${PASS}" ssh -o StrictHostKeyChecking=no -tt noamtuchman@noams-mbp.home"""
                 '''
         }
 

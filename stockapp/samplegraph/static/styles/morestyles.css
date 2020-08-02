@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
+
+.resultslist {
+    position: absolute;
+    background-color: white;
+    list-style-type: none;
+    top: 2.8rem;
+    width: 100%;
+}

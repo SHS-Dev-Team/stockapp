@@ -10,6 +10,8 @@ runtime_config:
   python_version: 3
 # [END runtime]
 
+
+#things mahdi added
 automatic_scaling:
     min_num_instances: 1
     max_num_instances: 7   

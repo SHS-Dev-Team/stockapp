@@ -23,17 +23,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'l_g#s+pzxe9pm=)uo*o&=(99^9g)v$+vixc13t7k+l--06v$@n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-<<<<<<< HEAD
 ALLOWED_HOSTS = ['*']
-=======
 if DEBUG:
     ALLOWED_HOSTS=["*"]
 else:
     ALLOWED_HOSTS = ['*']
     #ALLOWED_HOSTS = ["127.0.0.1","https://megajesus.uk.r.appspot.com"]
->>>>>>> 6ee45a4dfa55efb933366ddf9e5e3fc16342bb28
 
 
 # Application definition
@@ -158,10 +155,10 @@ REST_FRAMEWORK = {
 # [START staticurl]
 # Fill in your cloud bucket and switch which one of the following 2 lines
 # is commented to serve static content from GCS
-#STATIC_URL = 'https://storage.googleapis.com/imperiumstatic/static/'
+STATIC_URL = 'https://storage.googleapis.com/imperiumstatic/static/'
 STATIC_ROOT ='static'
 
-STATIC_URL = '/static/'
+#STATIC_URL = '/static/'
 
 
 

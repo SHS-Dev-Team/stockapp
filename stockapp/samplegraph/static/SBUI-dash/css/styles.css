@@ -6798,7 +6798,7 @@ input[type=button].btn-block {
 
 .card-body {
   flex: 1 1 auto;
-  min-height: 1px;
+  min-height: 10px;
   padding: 1.35rem;
 }
 
@@ -9638,6 +9638,10 @@ a.close.disabled {
 
 .bg-primary {
   background-color: #0061f2 !important;
+}
+
+.bg-topnav {
+  background-color: #24344b !important;
 }
 
 a.bg-primary:hover, a.bg-primary:focus,

@@ -21,9 +21,9 @@ def index(request):
 
 def userInfo(request):
     if request.user.is_authenticated:
-        return JsonResponse({"username":request.user.username})
+        return JsonResponse({"username":request.user.username,"email":request.user.email})
     else:
-        return JsonResponse({"username":"Sign Up"})
+        return JsonResponse({"username":"Sign Up","email":""})
 
 def algoTrade(request):
     if request.method=="GET":

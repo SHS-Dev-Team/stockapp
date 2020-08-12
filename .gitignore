@@ -10,3 +10,4 @@ stockapp/static/
 cors-json.json
 db.sqlite3
 __pycache__
+stockapp/stockapp/settings.py

@@ -155,10 +155,10 @@ REST_FRAMEWORK = {
 # [START staticurl]
 # Fill in your cloud bucket and switch which one of the following 2 lines
 # is commented to serve static content from GCS
-#STATIC_URL = 'https://storage.googleapis.com/imperiumstatic/static/'
+STATIC_URL = 'https://storage.googleapis.com/imperiumstatic/static/'
 STATIC_ROOT ='static'
 
-STATIC_URL = '/static/'
+#STATIC_URL = '/static/'
 
 
 

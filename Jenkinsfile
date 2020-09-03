@@ -20,7 +20,7 @@ pipeline {
 
         stage('google login') {
           steps {
-            sh 'ls; cd stockapp/; gcloud auth activate-service-account burrow@megajesus.iam.gserviceaccount.com --key-file=megajesus-aa7a78652074.json; gcloud config set project megajesus; gcloud components update'
+            sh 'ls; cd stockapp/; gcloud auth activate-service-account burrow@megajesus.iam.gserviceaccount.com --key-file=megajesus-aa7a78652074.json; gcloud config set project megajesus'
           }
         }
 

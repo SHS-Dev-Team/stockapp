@@ -94,21 +94,21 @@ DATABASES = {
 # In the flexible environment, you connect to CloudSQL using a unix socket.
 # Locally, you can use the CloudSQL proxy to proxy a localhost connection
 # to the instance
-DATABASES['default']['HOST'] = '/cloudsql/megajesus:us-east4:imperiumdatabase'
-if os.getenv('GAE_INSTANCE'):
-    pass
-else:
-    DATABASES['default']['HOST'] = '127.0.0.1'
+#DATABASES['default']['HOST'] = '/cloudsql/megajesus:us-east4:imperiumdatabase'
+#if os.getenv('GAE_INSTANCE'):
+    #pass
+#else:
+DATABASES['default']['HOST'] = '127.0.0.1'
 # [END dbconfig]
 
 # Use a in-memory sqlite3 database when testing in CI systems
-if os.getenv('TRAMPOLINE_CI', None):
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
-        }
-    }
+#if os.getenv('TRAMPOLINE_CI', None):
+    #DATABASES = {
+        #'default': {
+            #'ENGINE': 'django.db.backends.sqlite3',
+            #'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
+        #}
+    #}
 
 
 # Password validation
@@ -155,10 +155,10 @@ REST_FRAMEWORK = {
 # [START staticurl]
 # Fill in your cloud bucket and switch which one of the following 2 lines
 # is commented to serve static content from GCS
-STATIC_URL = 'https://storage.googleapis.com/imperiumstatic/static/'
+#STATIC_URL = 'https://storage.googleapis.com/imperiumstatic/static/'
 STATIC_ROOT ='static'
 
-#STATIC_URL = '/static/'
+STATIC_URL = '/static/'
 
 
 

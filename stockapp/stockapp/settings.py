@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'stockapp.wsgi.application'
 
 # [START dbconfig]
 
-
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -88,7 +88,13 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
+'''
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
+    }
+}
 
 
 # In the flexible environment, you connect to CloudSQL using a unix socket.

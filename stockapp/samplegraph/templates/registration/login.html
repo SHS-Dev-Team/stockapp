@@ -41,7 +41,10 @@ Login - Imperium
                       </div>
                     </div> --> 
                     <input type="hidden" name="next" value="{{ dashboard }}" />
-                    <input type="submit" placeholder="Login" class="btn btn-primary btn-user btn-block"><!--
+                    <input type="submit" placeholder="Login" class="btn btn-primary btn-user btn-block">
+                    <label>
+                      <input type="checkbox" checked="checked" name="remember"> Remember me
+                    </label><!--
                     </type>
                     <hr>
                     <a href="index.html" class="btn btn-google btn-user btn-block">
@@ -60,8 +63,5 @@ Login - Imperium
                   </div>
                 </div>
               </div>
-              <label>
-                <input type="checkbox" checked="checked" name="remember"> Remember me
-              </label>
             </div>
 {%endblock%}

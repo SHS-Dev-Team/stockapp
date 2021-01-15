@@ -13,10 +13,6 @@ Login - Imperium
 
                   </div>
                   {% if form.errors %}
-                    var c = document.getElementById("myCanvas");
-                        var ctx = c.getContext("2d");
-                        ctx.shadowBlur = 20;
-                        ctx.shadowColor = "black";
                   
                     <p style="color:red;">
                        
@@ -41,7 +37,7 @@ Login - Imperium
                       </div>
                     </div> --> 
                     <input type="hidden" name="next" value="{{ dashboard }}" />
-                    <input type="submit" placeholder="Login" class="btn btn-primary btn-user btn-block">
+                    <input type="password" placeholder="Enter Password" name="psw" required>
                     <label>
                       <input type="checkbox" checked="checked" name="remember"> Remember me
                     </label><!--

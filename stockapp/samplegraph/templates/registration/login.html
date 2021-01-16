@@ -1,6 +1,7 @@
 <style>
 body {background-color: powderblue;}
-hh   {color: #00FFFF;}
+hh   {color: blue;}
+b {border-color: blue;}
 </style>
 {% extends "registration/base.html" %}
 {%block title%}
@@ -45,7 +46,7 @@ Login - Imperium
                         <label class="custom-control-label" for="customCheck">Remember Me</label>
                       </div>
                     </div> --> 
-                    <input type="hidden" name="next" value="{{ dashboard }}" />
+                    <input <b>type="hidden" name="next" value="{{ dashboard }}" </b>/>
                     <input type="submit" placeholder="Login" class="btn btn-primary btn-user btn-block">
                     <label>
                       <input type="checkbox" checked="checked" name="remember"> Remember me

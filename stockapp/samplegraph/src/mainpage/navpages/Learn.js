@@ -1,5 +1,6 @@
 import React from 'react';
-
+import UniqueImage from '../../../static/baseUI/img/undraw_posting_photo.svg';
+import ChartComponent from '../../chart/ChartApp'
 
 class Learn extends React.Component{
     constructor(props){

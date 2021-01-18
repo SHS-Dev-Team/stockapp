@@ -1,11 +1,11 @@
 .sqlite3
 node_modules
 stockapp/samplegraph/node_modules/
-stockapp/samplegraph/webpack.config.js
-stockapp/samplegraph/package.json
+#stockapp/samplegraph/webpack.config.js
+#stockapp/samplegraph/package.json
 stockapp/samplegraph/package-lock.json
-stockapp/samplegraph/.babelrc
-stockapp/samplegraph/src/
+#stockapp/samplegraph/.babelrc
+#stockapp/samplegraph/src/
 stockapp/static/
 cors-json.json
 db.sqlite3

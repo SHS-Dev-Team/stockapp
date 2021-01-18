@@ -7,7 +7,7 @@ class Learn extends React.Component{
         super(props);
         this.state={
             posts: [],
-            ready: false
+            ready: true
         }
     }
     componentDidMount(){
